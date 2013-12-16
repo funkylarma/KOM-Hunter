@@ -1,0 +1,14 @@
+{
+  "name": "Segment-Finder",
+  "description": "Just messing with the Strava API",
+  "version": "0.0.1",
+  "author": "Adam Chamberlin <adam@shibbyonline.co.uk>",
+  "repository": {
+      "type": "git",
+      "url": "https://github.com/funkylarma"
+    },
+  "dependencies": {
+    "express": "3.x",
+    "hbs": "*"
+  }
+}
