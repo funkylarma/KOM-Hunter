@@ -20,7 +20,7 @@ app.use( express.static( 'public' ) );
 
 // Time to define some routes
 app.get( '/', function( request, response ) {
-  response.render( 'index', {title:"Sample Node App"} );
+  response.render( 'index', {title:"KOM Hunter"} );
 });
 
 // Finally create the server
