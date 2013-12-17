@@ -24,9 +24,7 @@ function initialize() {
     $('#feedback').html('<p class="feedback">Looking up the local Stava segments</p>');
     var ne = map.getBounds().getNorthEast();
     var sw = map.getBounds().getSouthWest();
-  
-    console.log("https://www.strava.com/api/v3/segments/explore?access_token=894ab124cefb52711e0048ad5ed6bd94a7e5d3f3&bounds=" + sw.lat() + "," + sw.lng() + "," + ne.lat() + "," + ne.lng() );
-  
+
     $.getJSON("/segments/" + sw.lat() + "/" + sw.lng() + "/" + ne.lat() + "/" + ne.lng(), function(data){
       $.each(data.segments, function(i,item){
         var marker = dropPin(item.start_latlng[0], item.start_latlng[1]);
@@ -65,8 +63,6 @@ function handle_location_query(position) {
   map.setZoom(zoom);
   var ne = map.getBounds().getNorthEast();
   var sw = map.getBounds().getSouthWest();
-  
-  console.log("https://www.strava.com/api/v3/segments/explore?access_token=894ab124cefb52711e0048ad5ed6bd94a7e5d3f3&bounds=" + sw.lat() + "," + sw.lng() + "," + ne.lat() + "," + ne.lng() );
   
   $.getJSON("/segments/" + sw.lat() + "/" + sw.lng() + "/" + ne.lat() + "/" + ne.lng(), function(data){
     $.each(data.segments, function(i,item){
@@ -119,8 +115,6 @@ function display_segment(segment) {
   $(".distance").text('Distance: ' + (segment.distance / 1000).toFixed(2) + "km");
   $(".climb").html("Average Grade: " + segment.avg_grade + "%<br />Climb Category: " + segment.climb_category_desc);
   $(".link__ss").html('<a href="http://app.strava.com/segments/' + segment.id + '" class="view_strava">View segment on Strava</a>');
-  $(".leaderboard").show();
-  $(".link__lb").html('<a href="#" data-id="' + segment.id + '" class="view_leaderboard" id="btnLeader">View something</a>');
 }
 
 google.maps.Map.prototype.clearOverlays = function() {
@@ -136,12 +130,3 @@ $("#btnLoc").click(function() {
   $(".sidebar").addClass('open', 1200);
   return false;
 });
-
-$("#btnLeader").click(function() {
-  alert("Show the leaderboard");
-  var segment_id = $(this).data("id");
-  console.log(segment_id);
-  return false;
-});
-
-$( ".sidebar" ).resizable();

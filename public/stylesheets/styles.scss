@@ -71,15 +71,16 @@ body {
   width: 60%;
   height: 50%;
   margin: 10em auto;
-  padding: 5em;
+  padding: 2em 5em;
   position: relative;
   z-index: 1;
   background: white;
+  text-align:center;
   @include rounded(80px);
   @include box-shadow(0 2px 5px $black);
   
-  h1 {
-    text-align:center;
+  p {
+    text-align: left;
   }
 }
 
