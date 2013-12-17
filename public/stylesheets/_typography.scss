@@ -1,12 +1,12 @@
 a {
   text-decoration: none;
-  color: #a81c25;
+  color: $orange;
   padding: 2px 0;
   -webkit-transition: color 0.3s ease-out;
 }
 
 a:hover {
-  color: #391717;
+  color: darken($orange, 10);
 }
 
 h1, h2, h3, h4, h5, h6 {

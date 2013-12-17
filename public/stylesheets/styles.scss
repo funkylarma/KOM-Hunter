@@ -9,6 +9,7 @@
 // Set some variables
 $black: rgba(1,1,1,0.7);
 $white: rgba(255,255,255,1);
+$orange: rgba(252,76,2,1);
 
 /*
  * Imports
@@ -57,34 +58,10 @@ body {
  * Layout styles
  */
 
-/*
- * Form Styles
- */
-input[type=text],
-input[type=tel],
-input[type=email],
-input[type=number],
-textarea,
-#keywords_tag {
-  padding: 1em;
-  margin-bottom: 1em;
-  @include font-size(16);
-    
-  &:focus { 
-    outline: none;
-  }
-}
-
-label {
-  text-transform: uppercase;
-  display: block;
-}
-
 #map {
   height: 100%;
   position: absolute; 
-  top: 0; 
-  bottom: -200px; 
+  top: 0;
   left: 0; 
   right: 0; 
   z-index: 0;
@@ -92,23 +69,34 @@ label {
 
 .content {
   width: 60%;
-  height: 60%;
+  height: 50%;
   margin: 10em auto;
   padding: 5em;
   position: relative;
   z-index: 1;
   background: white;
+  @include rounded(80px);
+  @include box-shadow(0 2px 5px $black);
+  
+  h1 {
+    text-align:center;
+  }
 }
 
 .sidebar {
   width: 20em;
   height: 100%;
   position: fixed;
-  right: 0;
+  top: 0;
+  right: -20em;
   z-index: 2;
   padding: 2em;
   background: $black;
   color: $white;
+  
+  &.open {
+    right: 0em;
+  }
 }
 
 /*
