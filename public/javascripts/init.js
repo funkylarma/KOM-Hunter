@@ -6,7 +6,15 @@ function initialize() {
   var myOptions = {
                   zoom: 4,
                   center: latlng,
-                  mapTypeId: google.maps.MapTypeId.ROADMAP
+                  mapTypeId: google.maps.MapTypeId.ROADMAP,
+                  panControl: false,
+                  mapTypeControl: false,
+                  streetViewControl: false,
+                  zoomControl: true,
+                  zoomControlOptions: {
+                    style: google.maps.ZoomControlStyle.LARGE,
+                    position: google.maps.ControlPosition.LEFT_CENTER
+                  }
           };
   var map = new google.maps.Map(document.getElementById('map'), myOptions);
   
@@ -99,6 +107,7 @@ function dropPin( lat, lng ) {
   var marker = new google.maps.Marker({
     position: latlng,
     draggable: true,
+    icon: '/images/marker.png',
     map: map,
     animation: google.maps.Animation.DROP
   });
@@ -109,7 +118,9 @@ function display_segment(segment) {
   $(".sidebar h1").text(segment.name);
   $(".distance").text('Distance: ' + (segment.distance / 1000).toFixed(2) + "km");
   $(".climb").html("Average Grade: " + segment.avg_grade + "%<br />Climb Category: " + segment.climb_category_desc);
-  $(".link").html('<a href="http://app.strava.com/segments/' + segment.id + '" class="view_strava">View segment on Strava</a>');
+  $(".link__ss").html('<a href="http://app.strava.com/segments/' + segment.id + '" class="view_strava">View segment on Strava</a>');
+  $(".leaderboard").show();
+  $(".link__lb").html('<a href="#" data-id="' + segment.id + '" class="view_leaderboard" id="btnLeader">View something</a>');
 }
 
 google.maps.Map.prototype.clearOverlays = function() {
@@ -121,7 +132,16 @@ google.maps.Map.prototype.clearOverlays = function() {
 
 $("#btnLoc").click(function() {
   initiate_geolocation(map);
-  $(".content").fadeOut();
-  $(".sidebar").addClass('open');
+  $(".content").fadeOut(800);
+  $(".sidebar").addClass('open', 1200);
   return false;
-}); 
+});
+
+$("#btnLeader").click(function() {
+  alert("Show the leaderboard");
+  var segment_id = $(this).data("id");
+  console.log(segment_id);
+  return false;
+});
+
+$( ".sidebar" ).resizable();
