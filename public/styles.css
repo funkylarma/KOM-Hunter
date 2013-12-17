@@ -288,12 +288,35 @@ caption {
 /*
  * Media Queries
  */
-/* Smartphones (portrait and landscape) */
-/* Smartphones (landscape) */
-/* Smartphones (portrait) */
-/* iPads (portrait and landscape) */
-/* iPads (landscape) */
-/* iPads (portrait) */
-/* Desktops and laptops */
-/* Large screens */
-/* iPhone 4 */
+@media only screen and (max-width: 850px) {
+  .content {
+    width: 90%;
+    margin: 4em auto;
+    padding: 2em;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-size: 1.2rem; }
+    .content p {
+      margin-bottom: 0.5em; }
+
+  .sidebar {
+    height: auto;
+    width: 100%;
+    bottom: -10em;
+    top: auto;
+    right: auto;
+    padding: 1em; }
+    .sidebar.open {
+      bottom: 0; }
+    .sidebar h1 {
+      margin: 0 0.5em 0 0;
+      font-size: 18px;
+      font-size: 1.8rem; }
+    .sidebar p {
+      margin: 0; }
+    .sidebar .segment {
+      float: left; }
+    .sidebar .leaderboard {
+      float: right; } }
