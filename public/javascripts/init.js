@@ -33,8 +33,6 @@ function initialize() {
           map.setCenter(marker.getPosition());
           display_segment(item);
         });
-    	  console.log(item);
-        console.log(marker);
     	});
     });
     $('#feedback').html('');
@@ -72,8 +70,6 @@ function handle_location_query(position) {
         map.setCenter(marker.getPosition());
         display_segment(item);
       });
-  	  console.log(item);
-      console.log(marker);
   	});
   });
   $(".sidebar h1").text('Select a KOM');
